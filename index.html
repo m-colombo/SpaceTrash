@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>Space Trash - Michele Colombo</title>
+<meta charset="UTF-8">
+<style>
+html, body{
+	margin: 0;
+	padding: 0;
+	text-align:center;
+	background: #202020;
+}	
+
+td{ min-width: 80px}
+
+@font-face{
+	font-family: title;
+	src: url('res/space age.ttf');
+}
+
+</style>
+</head>
+<body>
+
+<audio preload="auto" autobuffer autoplay loop id="audio">
+<source src="res/background.mp3" />
+</audio>
+
+
+<table style="position: absolute; right: 30px; top: 20px;color: grey">
+<tr><td colspan="2">Keyboard shortcut:</td></tr>
+<tr><td>W A D</td><td>Propulsor</td></tr>
+<tr><td>+ - </td><td>Camera zoom</td></tr>
+<tr><td>I J K L</td><td>Camera movement</td></tr>
+<tr><td>C</td><td>Camera lock toggle</td></tr>
+<tr><td>S</td><td>Launch / Restart</td></tr>
+</table>
+<canvas width="800" height="600" id="canvas" ></canvas>	
+<script type="text/javascript">
+	/* Global single letter variables:
+		C: Context;
+		L: Current Level
+		G: Game state
+		P: Paramaters
+		T: Homogenous transformation util
+		U: Util
+	*/
+	var G = {};
+	
+	var P = { 
+		width: 800,
+		height: 600,
+		background_color: "#000001",
+		//background_color: 'black',
+		INF_background: "#171923",
+		INF_detail: 	"#04b2cd",
+		INF_detail2: 	"#eab645",
+		INF_text:		"#818181",
+		gravity: 100
+	}
+	
+	var fonts = ['title'];
+	
+	var canvas = document.getElementById('canvas');
+	P.width = canvas.width;
+	P.height = canvas.height;
+
+	var C = canvas.getContext('2d');
+	
+	var audioPlayer = document.getElementById('audio');
+</script>
+<script type="text/javascript" src="supporto/controls.js"></script>
+<script type="text/javascript" src="supporto/homogenousTransformation.js"></script>
+<script type="text/javascript" src="supporto/util.js"></script>
+<script type="text/javascript" src="supporto/animationManager.js"></script>
+<script type="text/javascript" src="supporto/keyboardManager.js"></script>
+<script type="text/javascript" src="supporto/collisionManager.js"></script>
+<script type="text/javascript" src="supporto/mouseManager.js"></script>
+<script type="text/javascript" src="supporto/levelEditorControl.js"></script>
+
+<script type="text/javascript" src="gameObj/manager.js"></script>
+<script type="text/javascript" src="gameObj/ship.js"></script>
+<script type="text/javascript" src="gameObj/station.js"></script>
+<script type="text/javascript" src="gameObj/planet.js"></script>
+<script type="text/javascript" src="gameObj/trash.js"></script>
+<script type="text/javascript" src="gameObj/asteroid.js"></script>
+
+<script type="text/javascript" src="levelsDef.js"></script>
+
+<script type="text/javascript" src="splash.js"></script>
+<script type="text/javascript" src="editor.js"></script>
+<script type="text/javascript" src="levelEditor.js"></script>
+<script type="text/javascript" src="levelSelect.js"></script>
+<script type="text/javascript" src="communicator.js"></script>
+<script type="text/javascript" src="game.js"></script>
+
+<script type="text/javascript">
+	//Force the font loading TODO: real preload with callback
+	for(var i = 0; i < fonts.length; i++){C.font = '1px '+fonts[i]; C.fillText('a', 0, 0);}
+
+	initSplash();
+	//initEditor();
+	//initLevelEditor();
+	//initLevelSelect();
+	//initCommunicator(Levels[1]);
+	//initGame(Levels[Levels.length - 1]);
+ 
+</script>
+<div style="font-size: 12px" xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://freemusicarchive.org/music/Kevin_Bryce/Chromium_Gate/6_A_flashback_for_Mr_Computer">Music: <span property="dct:title">A Flashback for Mr Computer</span> (<a rel="cc:attributionURL" property="cc:attributionName" href="http://freemusicarchive.org/music/Kevin_Bryce/">Kevin Bryce</a>) / <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">CC BY-NC-SA 3.0</a></div>
+<br /><br/>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+</body>
+</html>
