@@ -12,6 +12,10 @@ In order to make the game programming easier a little framework has been built, 
 * homogenous transformation
 * levels serialization and persistence
 
+Gameplay
+------
+You have a space ship, your goal is to get to some planet and/or collect some trash. Taking into account gravity, limited fuel, moving planet, asteroids and trash.
+
 You'll find [here](http://michele-colombo.it/progetti/IUM/) an online playable version of the game. 
 
 ![Screenshot](http://michele-colombo.it/wp-content/uploads/2013/09/Senza-titolo-12.jpg)
